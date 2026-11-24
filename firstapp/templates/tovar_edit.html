@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Изменение товара{% endblock %}
+{% block content %}
+    <h2>Изменение товара №{{ tovar.id }}</h2>
+    <form method="POST" class="card">
+        {% csrf_token %}
+        <label>Название товара</label>
+        <input type="text" name="name" value="{{ tovar.name }}" maxlength="50" required>
+        <label>Цена, ₸</label>
+        <input type="number" name="price" value="{{ tovar.price|stringformat:'s' }}" min="0" step="0.01" required>
+        <button type="submit">Сохранить</button>
+        <a href="/tovary/">Отмена</a>
+    </form>
+{% endblock %}

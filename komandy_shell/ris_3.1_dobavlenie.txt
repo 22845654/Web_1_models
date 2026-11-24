@@ -1,0 +1,13 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Person
+igor = Person.objects.create(name="Игорь", age=23)
+igor.id
+viktor = Person(name="Виктор", age=25)
+viktor.save()
+print(viktor.id, viktor.name, viktor.age)
+Person.objects.create(name="Василий", age=23)
+Person.objects.create(name="Tom", age=23)
+Person.objects.create(name="Tom", age=34)
+Person.objects.create(name="Николай", age=30)

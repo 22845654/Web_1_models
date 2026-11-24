@@ -1,0 +1,27 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Course, Student
+stud_viktor = Student.objects.create(name="Виктор")
+stud_viktor.courses.create(name="Математика")
+all_courses = Student.objects.get(name="Виктор").courses.all()
+all_courses
+all_student = Student.objects.filter(courses__name="Математика")
+all_student
+kurs_python = Course.objects.create(name="Python")
+kurs_python.student_set.create(name="Ернар")
+alex = Student(name="Александр")
+alex.save()
+kurs_python.student_set.add(alex)
+students = kurs_python.student_set.all()
+for s in students:
+    print(s.id, s.name)
+
+number = kurs_python.student_set.count()
+number
+kurs_python.student_set.remove(alex)
+kurs_python.student_set.count()
+stud_viktor.courses.add(kurs_python)
+for c in stud_viktor.courses.all():
+    print(c.id, c.name)
+

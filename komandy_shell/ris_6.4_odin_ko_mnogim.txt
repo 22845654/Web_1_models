@@ -1,0 +1,23 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Company, Product
+firma = Company.objects.create(name="Электрон")
+firma.product_set.create(name="Samsung S20", price=42000)
+ipad = Product(name="iPad", price=34200)
+firma.product_set.add(ipad, bulk=False)
+firma.product_set.create(name="Ноутбук Lenovo", price=310000)
+miratorg = Company.objects.create(name="Мираторг")
+miratorg.product_set.create(name="Говядина", price=4500)
+id_company = Product.objects.get(id=1).company.id
+name_company = Product.objects.get(id=1).company.name
+print(id_company, name_company)
+Product.objects.filter(company__name="Мираторг")
+tovar = firma.product_set.all()
+for t in tovar:
+    print(t.id, t.name, t.price, t.company.name)
+
+firma.product_set.count()
+firma.product_set.filter(name__startswith="Ноутбук")
+miratorg.delete()
+Product.objects.count()

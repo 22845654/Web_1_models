@@ -1,0 +1,24 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# PyCharm
+.idea/
+
+# Collected static files
+staticfiles/
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
+
+# logs
+setup_log.txt
+github_log.txt

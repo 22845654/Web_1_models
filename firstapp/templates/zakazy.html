@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Заказы{% endblock %}
+{% block content %}
+    <h2>Заказы</h2>
+    <form method="POST" action="/zakazy/create/" class="card">
+        {% csrf_token %}
+        <b>Новый заказ</b>
+        <label>Клиент</label>
+        <select name="person" required>
+            <option value="">— выберите клиента —</option>
+            {% for person in people %}
+            <option value="{{ person.id }}">{{ person.name }}</option>
+            {% endfor %}
+        </select>
+        <label>Товар</label>
+        <select name="tovar" required>
+            <option value="">— выберите товар —</option>
+            {% for tovar in tovary %}
+            <option value="{{ tovar.id }}">{{ tovar.name }} ({{ tovar.price }} ₸)</option>
+            {% endfor %}
+        </select>
+        <label>Количество</label>
+        <input type="number" name="kolichestvo" value="1" min="1" required>
+        <button type="submit">Сохранить</button>
+    </form>
+    {% if zakazy %}
+    <table>
+        <tr><th>Id</th><th>Клиент</th><th>Товар</th><th>Кол-во</th><th>Сумма, ₸</th><th>Дата</th><th></th></tr>
+        {% for zakaz in zakazy %}
+        <tr>
+            <td>{{ zakaz.id }}</td>
+            <td>{{ zakaz.person.name }}</td>
+            <td>{{ zakaz.tovar.name }}</td>
+            <td class="num">{{ zakaz.kolichestvo }}</td>
+            <td class="num">{{ zakaz.summa }}</td>
+            <td>{{ zakaz.data|date:"d.m.Y H:i" }}</td>
+            <td><a class="edit" href="/zakazy/edit/{{ zakaz.id }}/">Изменить</a> |
+                <a class="del" href="/zakazy/delete/{{ zakaz.id }}/">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p class="empty">Заказов пока нет.</p>
+    {% endif %}
+{% endblock %}

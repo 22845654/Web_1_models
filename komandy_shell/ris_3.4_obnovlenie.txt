@@ -1,0 +1,20 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Person
+from django.db.models import F
+nic = Person.objects.get(id=2)
+nic.name = "Николай Петров"
+nic.save()
+nic.name = "Ник"
+nic.save(update_fields=["name"])
+Person.objects.filter(id=2).update(name="Михаил")
+Person.objects.filter(id=2).update(age=F("age") + 1)
+Person.objects.get(id=2).age
+values_for_update = {"name": "Михаил", "age": 31}
+bob, created = Person.objects.update_or_create(id=2, defaults=values_for_update)
+print(bob.id, bob.name, bob.age, created)
+Person.objects.all().update(age=F("age") + 1)
+for p in Person.objects.all():
+    print(p.id, p.name, p.age)
+

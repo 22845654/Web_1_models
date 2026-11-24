@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Товары{% endblock %}
+{% block content %}
+    <h2>Товары</h2>
+    <form method="POST" action="/tovary/create/" class="card">
+        {% csrf_token %}
+        <b>Новый товар</b>
+        <label>Название товара</label>
+        <input type="text" name="name" maxlength="50" required>
+        <label>Цена, ₸</label>
+        <input type="number" name="price" min="0" step="0.01" required>
+        <button type="submit">Сохранить</button>
+    </form>
+    {% if tovary %}
+    <table>
+        <tr><th>Id</th><th>Название</th><th>Цена, ₸</th><th></th></tr>
+        {% for tovar in tovary %}
+        <tr>
+            <td>{{ tovar.id }}</td>
+            <td>{{ tovar.name }}</td>
+            <td class="num">{{ tovar.price }}</td>
+            <td><a class="edit" href="/tovary/edit/{{ tovar.id }}/">Изменить</a> |
+                <a class="del" href="/tovary/delete/{{ tovar.id }}/">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p class="empty">Товаров пока нет.</p>
+    {% endif %}
+{% endblock %}

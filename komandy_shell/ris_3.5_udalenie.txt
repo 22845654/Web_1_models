@@ -1,0 +1,11 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Person
+person = Person.objects.get(id=2)
+person.delete()
+Person.objects.filter(id=4).delete()
+people = Person.objects.filter(name="Tom").exclude(age=34)
+print(people.query)
+Person.objects.count()
+Person.objects.all().delete()

@@ -1,0 +1,37 @@
+﻿ПРАКТИЧЕСКАЯ РАБОТА «МОДЕЛИ ДАННЫХ DJANGO» — КАК ЗАПУСТИТЬ И ПОКАЗАТЬ
+
+1. ПОДКЛЮЧИТЬ PYTHON К ПРОЕКТУ (один раз)
+   Внизу справа в PyCharm написано <No interpreter> -> нажать ->
+   Add New Interpreter -> Add Local Interpreter -> Virtualenv (Generate new) ->
+   Base python: выбрать Python 3.x -> OK.
+   Потом закрыть вкладку Terminal (крестик) и открыть заново:
+   в начале строки должно появиться (.venv).
+   Если в списке нет ни одного Python — установить с python.org
+   (при установке поставить галочку «Add python.exe to PATH»).
+
+2. УСТАНОВИТЬ ПАКЕТЫ (один раз), в терминале PyCharm:
+       pip install -r requirements.txt
+
+3. ЗАПУСК САЙТА:
+       python manage.py runserver
+   или двойной клик по run.bat. Сайт: http://127.0.0.1:8005/
+
+ГДЕ КАКОЙ КОД (номера рисунков как в отчете)
+  hello\settings.py              — рис. 1.1, 1.2 и раздел 7 (настройки для Интернета)
+  firstapp\models.py             — все модели
+  firstapp\migrations\           — файлы миграций 0001 ... 0005
+  firstapp\views.py              — рис. 5.1 (в нем и функции с рис. 4.2)
+  firstapp\templates\index.html  — рис. 5.4,  edit.html — рис. 5.3
+  hello\urls.py                  — рис. 5.5
+  shagi\                         — промежуточный вариант кода из раздела 4
+  komandy_shell\                 — команды для python manage.py shell
+  requirements.txt, Procfile, .gitignore — раздел 7 (публикация)
+
+БАЗА ДАННЫХ
+  baza_dannyh\prosmotr_bazy.html — двойной клик, все таблицы в браузере.
+  db.sqlite3 — сама база. Открыть программой DB Browser for SQLite
+     (sqlitebrowser.org): Открыть базу данных -> db.sqlite3 -> вкладка «Данные».
+  baza_dannyh\firstapp_tablitsy.sql — SQL-код таблиц (открывается Блокнотом).
+
+SQL-код миграций:  python manage.py sqlmigrate firstapp 0001   (0002 ... 0005)
+Повторить команды раздела 3 с пустой базой:  python manage.py flush  (yes)

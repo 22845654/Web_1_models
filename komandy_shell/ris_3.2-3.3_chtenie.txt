@@ -1,0 +1,28 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Person
+klient1 = Person.objects.get(name="Виктор")
+klient2 = Person.objects.get(age=25)
+klient3 = Person.objects.get(name="Василий", age=23)
+print(klient1.name, klient2.name, klient3.name)
+Person.objects.get(name="Анна")
+Person.objects.get(age=23)
+bob, created = Person.objects.get_or_create(name="Bob", age=24)
+print(bob.name, bob.age, created)
+bob, created = Person.objects.get_or_create(name="Bob", age=24)
+print(bob.name, bob.age, created)
+people = Person.objects.all()
+people
+Person.objects.filter(age=23)
+Person.objects.filter(name="Tom", age=23)
+Person.objects.exclude(age=23)
+Person.objects.filter(name="Tom").exclude(age=23)
+people = Person.objects.in_bulk()
+for id in people:
+    print(id, people[id].name, people[id].age)
+
+people2 = Person.objects.in_bulk([1, 3])
+for id in people2:
+    print(people2[id].name, people2[id].age)
+

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Изменение клиента{% endblock %}
+{% block content %}
+    <h2>Изменение клиента №{{ person.id }}</h2>
+    <form method="POST" class="card">
+        {% csrf_token %}
+        <label>Имя</label>
+        <input type="text" name="name" value="{{ person.name }}" maxlength="20" required>
+        <label>Возраст</label>
+        <input type="number" name="age" value="{{ person.age }}" min="0" required>
+        <button type="submit">Сохранить</button>
+        <a href="/">Отмена</a>
+    </form>
+{% endblock %}

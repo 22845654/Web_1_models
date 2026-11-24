@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Изменение заказа{% endblock %}
+{% block content %}
+    <h2>Изменение заказа №{{ zakaz.id }}</h2>
+    <form method="POST" class="card">
+        {% csrf_token %}
+        <label>Клиент</label>
+        <select name="person" required>
+            {% for person in people %}
+            <option value="{{ person.id }}" {% if person.id == zakaz.person_id %}selected{% endif %}>{{ person.name }}</option>
+            {% endfor %}
+        </select>
+        <label>Товар</label>
+        <select name="tovar" required>
+            {% for tovar in tovary %}
+            <option value="{{ tovar.id }}" {% if tovar.id == zakaz.tovar_id %}selected{% endif %}>{{ tovar.name }} ({{ tovar.price }} ₸)</option>
+            {% endfor %}
+        </select>
+        <label>Количество</label>
+        <input type="number" name="kolichestvo" value="{{ zakaz.kolichestvo }}" min="1" required>
+        <button type="submit">Сохранить</button>
+        <a href="/zakazy/">Отмена</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,328 @@
+[
+{
+  "model": "firstapp.person",
+  "pk": 12,
+  "fields": {
+    "name": "Тони Старк",
+    "age": 48
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 13,
+  "fields": {
+    "name": "Стив Роджерс",
+    "age": 105
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 14,
+  "fields": {
+    "name": "Тор",
+    "age": 1500
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 15,
+  "fields": {
+    "name": "Наташа Романофф",
+    "age": 35
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 16,
+  "fields": {
+    "name": "Брюс Беннер",
+    "age": 49
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 17,
+  "fields": {
+    "name": "Клинт Бартон",
+    "age": 46
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 18,
+  "fields": {
+    "name": "Питер Паркер",
+    "age": 17
+  }
+},
+{
+  "model": "firstapp.person",
+  "pk": 19,
+  "fields": {
+    "name": "Ванда Максимофф",
+    "age": 30
+  }
+},
+{
+  "model": "firstapp.sotrudnik",
+  "pk": 2,
+  "fields": {
+    "fio": "Тони Старк",
+    "email": "tony@stark.com",
+    "birthday": "1970-05-29",
+    "salary": "9999999.99",
+    "staj": 25,
+    "is_active": true,
+    "site": "https://www.starkindustries.com",
+    "about": "Гений, миллиардер, плейбой, филантроп"
+  }
+},
+{
+  "model": "firstapp.company",
+  "pk": 3,
+  "fields": {
+    "name": "Stark Industries"
+  }
+},
+{
+  "model": "firstapp.company",
+  "pk": 4,
+  "fields": {
+    "name": "Вакандский дизайн"
+  }
+},
+{
+  "model": "firstapp.product",
+  "pk": 5,
+  "fields": {
+    "company": 3,
+    "name": "Броня Mark 85",
+    "price": 9500000
+  }
+},
+{
+  "model": "firstapp.product",
+  "pk": 6,
+  "fields": {
+    "company": 3,
+    "name": "Дуговой реактор",
+    "price": 3000000
+  }
+},
+{
+  "model": "firstapp.product",
+  "pk": 7,
+  "fields": {
+    "company": 3,
+    "name": "Квинджет",
+    "price": 7200000
+  }
+},
+{
+  "model": "firstapp.product",
+  "pk": 8,
+  "fields": {
+    "company": 4,
+    "name": "Костюм Чёрной пантеры",
+    "price": 5000000
+  }
+},
+{
+  "model": "firstapp.course",
+  "pk": 3,
+  "fields": {
+    "name": "Боевая подготовка"
+  }
+},
+{
+  "model": "firstapp.course",
+  "pk": 4,
+  "fields": {
+    "name": "Пилотирование квинджета"
+  }
+},
+{
+  "model": "firstapp.course",
+  "pk": 5,
+  "fields": {
+    "name": "Магия"
+  }
+},
+{
+  "model": "firstapp.student",
+  "pk": 4,
+  "fields": {
+    "name": "Питер Паркер",
+    "courses": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "firstapp.student",
+  "pk": 5,
+  "fields": {
+    "name": "Ванда Максимофф",
+    "courses": [
+      3,
+      5
+    ]
+  }
+},
+{
+  "model": "firstapp.student",
+  "pk": 6,
+  "fields": {
+    "name": "Сэм Уилсон",
+    "courses": [
+      4
+    ]
+  }
+},
+{
+  "model": "firstapp.student",
+  "pk": 7,
+  "fields": {
+    "name": "Скотт Лэнг",
+    "courses": [
+      3
+    ]
+  }
+},
+{
+  "model": "firstapp.user",
+  "pk": 3,
+  "fields": {
+    "name": "Тони Старк"
+  }
+},
+{
+  "model": "firstapp.user",
+  "pk": 4,
+  "fields": {
+    "name": "Стив Роджерс"
+  }
+},
+{
+  "model": "firstapp.user",
+  "pk": 5,
+  "fields": {
+    "name": "Наташа Романофф"
+  }
+},
+{
+  "model": "firstapp.account",
+  "pk": 3,
+  "fields": {
+    "login": "ironman",
+    "password": "jarvis3000"
+  }
+},
+{
+  "model": "firstapp.account",
+  "pk": 4,
+  "fields": {
+    "login": "captain",
+    "password": "shield1945"
+  }
+},
+{
+  "model": "firstapp.account",
+  "pk": 5,
+  "fields": {
+    "login": "blackwidow",
+    "password": "redroom"
+  }
+},
+{
+  "model": "firstapp.tovar",
+  "pk": 1,
+  "fields": {
+    "name": "Щит Капитана Америка",
+    "price": "150000.00"
+  }
+},
+{
+  "model": "firstapp.tovar",
+  "pk": 2,
+  "fields": {
+    "name": "Молот Мьёльнир",
+    "price": "999999.00"
+  }
+},
+{
+  "model": "firstapp.tovar",
+  "pk": 3,
+  "fields": {
+    "name": "Броня Mark 85",
+    "price": "950000.00"
+  }
+},
+{
+  "model": "firstapp.tovar",
+  "pk": 4,
+  "fields": {
+    "name": "Лук Соколиного глаза",
+    "price": "45000.00"
+  }
+},
+{
+  "model": "firstapp.tovar",
+  "pk": 5,
+  "fields": {
+    "name": "Паутинострел",
+    "price": "12000.00"
+  }
+},
+{
+  "model": "firstapp.zakaz",
+  "pk": 1,
+  "fields": {
+    "person": 13,
+    "tovar": 1,
+    "kolichestvo": 1,
+    "data": "2026-11-24T06:48:29.618Z"
+  }
+},
+{
+  "model": "firstapp.zakaz",
+  "pk": 2,
+  "fields": {
+    "person": 14,
+    "tovar": 2,
+    "kolichestvo": 1,
+    "data": "2026-11-24T06:48:29.619Z"
+  }
+},
+{
+  "model": "firstapp.zakaz",
+  "pk": 3,
+  "fields": {
+    "person": 12,
+    "tovar": 3,
+    "kolichestvo": 2,
+    "data": "2026-11-24T06:48:29.621Z"
+  }
+},
+{
+  "model": "firstapp.zakaz",
+  "pk": 4,
+  "fields": {
+    "person": 17,
+    "tovar": 4,
+    "kolichestvo": 2,
+    "data": "2026-11-24T06:48:29.622Z"
+  }
+},
+{
+  "model": "firstapp.zakaz",
+  "pk": 5,
+  "fields": {
+    "person": 18,
+    "tovar": 5,
+    "kolichestvo": 3,
+    "data": "2026-11-24T06:48:29.624Z"
+  }
+}
+]

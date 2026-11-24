@@ -1,0 +1,9 @@
+# Открыть оболочку: python manage.py shell
+# Затем вставлять команды по одной (Ctrl+V, Enter)
+
+from firstapp.models import Sotrudnik
+from datetime import date
+s = Sotrudnik.objects.create(fio="Иванов Иван", email="ivanov@mail.kz", birthday=date(2000, 1, 15), salary="250000.50", staj=1, site="https://www.aues.edu.kz", about="Разработчик ПО")
+s = Sotrudnik.objects.get(fio="Иванов Иван")
+print(s.fio, s.email, s.birthday, s.salary, s.staj, s.is_active, s.site)
+type(s.birthday), type(s.salary), type(s.is_active)
